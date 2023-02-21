@@ -57,24 +57,42 @@ function showUserMessage(message, datetime) {
 function showBotMessage(message, datetime) {
 	renderMessageToScreen({
 		text: message,
+		message_side: 'left',
+	});
+}
+function showBotLessonMessage(message, datetime) {
+	renderMessageToScreen({
+		text: message,
 		time: datetime,
 		message_side: 'left',
 	});
 }
-
-/**
+let papers;
+let /**
  * Get input from user and show it on screen on button click.
  */
 $('#send_button').on('click', function (e) {
+	//Store the user value
+	papers =$('#msg_input').val();
+
+
 	// get and show message and reset input
 	showUserMessage($('#msg_input').val());
 	$('#msg_input').val('');
 
 	// show bot message
 	setTimeout(function () {
-		showBotMessage(randomstring());
+		console.log(typeof papers)
+		showBotMessage(randomstring());t
 	}, 300);
 });
+
+function generateAListOfLessons(){
+	let listOfLessons = [];
+	if (papers === '1'){
+		listOfLessons.concat('introduction to computer')
+	}
+}
 
 /**
  * Returns a random string. Just to specify bot message to the user.
@@ -94,9 +112,13 @@ function randomstring(length = 20) {
 	return output;
 }
 
+//A function to display buttons to the user
+function showBotMessageButton(){
+}
+
 /**
  * Set initial bot message to the screen for the user.
  */
 $(window).on('load', function () {
-	showBotMessage('Hello there! Type in a message.');
+	showBotLessonMessage("Hello there! Please select the lessons you want questions from<br>1. introduction to computer<br>2. concept of it<br>3. data representation<br>4. data communication and networking<br>5. database management<br>6. system analysis and design<br>7. web programming<br>8. computer operating system<br>9. programming fundamentals<br>10. fundamental of digital circuits it in business<br>11. new trends and future directions of it<br>12. internet of things<br>13. web development<br>14. fundamentals of digital circuits");
 });

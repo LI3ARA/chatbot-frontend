@@ -124,7 +124,11 @@ body {
 .messages .message.left .timestamp {
 	color: #b0742f;
 }
-
+.messages_s.message.left .text_wrapper{
+	background-color: #b0d4f3;
+	margin-right: 10px;
+	float: right;
+}
 /* user message */
 
 .messages .message.right .avatar {
@@ -208,3 +212,4 @@ body {
 	-o-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
+
